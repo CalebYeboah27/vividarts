@@ -17,7 +17,7 @@ variable "subnet_zone" {
 }
 
 variable "ssh_public_key" {
-  type = string
+  type        = string
   description = "public key that permits ssh connection to the ec2 instance"
 }
 
