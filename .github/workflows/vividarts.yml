@@ -16,8 +16,14 @@ jobs:
             -   name: Buid Docker image
                 run: docker image build -t calebyeboah:3.0 .
             
-            -   name: Login to Docker
-                run: echo "{{ secrets.DOCKER_PASSWORD }}" | docker login -u calebyeboah --password-stdin 
             
+            -   name: Login to Docker Hub
+                uses: docker/login-action@v3
+                with:
+                    username: ${{ secrets.DOCKERHUB_USERNAME }}
+                    password: ${{ secrets.DOCKERHUB_TOKEN }}
+
             -   name: push image to Docker Hub
-                run: docker push calebyeboah/vividarts:3.0 
+                run: docker push calebyeboah/vividarts:3.0
+            
+
