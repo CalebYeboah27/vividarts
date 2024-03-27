@@ -17,7 +17,7 @@ jobs:
                 run: docker image build -t calebyeboah:3.0 .
             
             -   name: Login to Docker
-                run: echo "{{ secrets.DOCKER_PW }}" | docker login -u "calebyeboah@gmail.com" --password-stdin 
+                run: echo "{{ secrets.DOCKER_PASSWORD }}" | docker login -u "calebyeboah@gmail.com" --password-stdin 
             
             -   name: push image to Docker Hub
                 run: docker push calebyeboah/vividarts:3.0 
